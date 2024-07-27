@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    /* Colores para el modo claro */
+    --first-color-light: rgb(156, 69, 19);
+    --second-color-light: rgb(176, 11, 11);
+    --third-color-light: rgb(92, 49, 38);
+    --body-by-color-light: rgb(255, 255, 255);
+    --card-by-color-light: white;
+    --line-color-light: rgb(0, 0, 0);
+
+    /* Colores para el modo oscuro */
+    --first-color-dark: rgb(255, 255, 255);
+    --second-color-dark: rgb(176, 11, 11);
+    --third-color-dark: rgb(92, 49, 38);
+    --body-by-color-dark: rgb(24, 24, 24);
+    --card-by-color-dark: rgb(36, 36, 36);
+    --line-color-dark: rgb(255, 255, 255);
+
+    --transition-duration: 0.3s;
+}
+
+[data-theme="light"] {
+    --first-color: var(--first-color-light);
+    --second-color: var(--second-color-light);
+    --third-color: var(--third-color-light);
+    --body-by-color: var(--body-by-color-light);
+    --card-by-color: var(--card-by-color-light);
+    --line-color: var(--line-color-light);
+}
+
+[data-theme="dark"] {
+    --first-color: var(--first-color-dark);
+    --second-color: var(--second-color-dark);
+    --third-color: var(--third-color-dark);
+    --body-by-color: var(--body-by-color-dark);
+    --card-by-color: var(--card-by-color-dark);
+    --line-color: var(--line-color-dark);
+}
+
+.theme-toggle-btn {
+    background: var(--second-color); /* Color de fondo cuando el tema es claro */
+    color: white; /* Color del texto cuando el tema es claro */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: darkred;
+    color: white; 
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+    background: var(--first-color-dark); 
+    color: black; 
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: var(--second-color-dark); 
+    color: white; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: background var(--transition-duration) ease, color var(--transition-duration) ease;
+    color: var(--first-color);
+    background: var(--body-by-color);
+    margin: 1rem 0 0 0;
+    transition: .5s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    z-index: 99999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(20px);
+    transition: .6s ease;
+}
+
+.nav-bar {
+    position: relative;
+    height: calc(3rem + 1rem);
+    max-width: 1150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+    transition: .6s ease;
+}
+
+header.stiky .nav-bar{
+    height: calc(2.5rem + 1rem);
+}
+
+.nav-bar .logo {
+    color: var(--first-color);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.nav-items a {
+    color: var(--first-color);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+}
+
+.nav-items a:not(:last-child) {
+    margin-right: 30px;
+}
+
+.nav-items a:hover {
+    color: var(--second-color);
+}
+
+.media-icons {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    align-items: center; 
+    margin-bottom: 1rem;
+}
+
+.media-icons a {
+    color: red; 
+    font-size: 1.8em; 
+    transition: color 0.3s ease; 
+}
+
+.media-icons a:hover {
+    color: darkred; 
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    max-width: 1150px;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.home-container .info {
+    max-width: 45%;
+}
+
+.home-container .info h2 {
+    font-size: 3.5em;
+    font-weight: 600;
+    line-height: 60px;
+}
+
+.home-container .info p {
+    color: var(--second-color-dark);
+    font-size: var(--normal-font-size);
+    max-width: 300px;
+}
+
+.home-container .btn {
+    background: var(--second-color);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.home-container .btn i {
+    margin-left: 0.5rem;
+}
+
+.home-container .home-img {
+    max-width: 45%;
+}
+
+.home-container .home-img img {
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Sections */
+.section {
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title-01 {
+    font-size: 2.2em;
+    color: var(--first-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.sub-section{
+    position: relative;
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 0;
+}
+
+.section-title-02 {
+    font-size: 1.4em;
+    color: var(--second-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-img {
+    flex: 0 1 auto;
+    max-width: 280px;
+    width: 100%;
+    margin-right: 1.5rem; 
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 1.5rem; 
+}
+
+.about-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.description {
+    max-width: 580px; 
+}
+
+/* Skills */
+.skills .container .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills-description {
+    max-width: 650px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.skills-description h3 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 15px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: auto;
+}
+
+.skills .btn {
+    background: var(--second-color);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.inspiration-description {
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px; 
+}
+.dj-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.dj {
+    text-align: center;
+    margin: 10px;
+    width: 250px; /* Ajusta el tamaño según tus necesidades */
+}
+.dj img {
+    max-width: 100%;
+    height: 250px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Mantener proporción sin deformar */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.dj img:hover {
+    transform: scale(1.05);
+}
+.dj p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #ff0000;
+}
+
+
+
+
+/* Contact Section */
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 50px;
+    background-color: var(--card-by-color);
+}
+
+
+
+.contact-form button:hover {
+    background-color: darkred;
+}
+
+.contact-info {
+    width: 45%;
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+    color: var(--second-color);
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    color: var(--first-color);
+}
+
+.social-media a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+.social-media a:hover {
+    color: darkred;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    color: rgb(255, 255, 255); 
+    background: var(--second-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.media-icons a.hovered {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
